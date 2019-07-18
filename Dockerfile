@@ -10,7 +10,7 @@ EXPOSE 8085
 # The application's jar file
 
 # Add the application's jar to the container
-COPY target/micro1-0.0.1-SNAPSHOT.jar micro1.jar
+COPY micro1-0.0.1-SNAPSHOT.jar micro1.jar
 
 
 # Run the jar file
