@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
-import static com.sun.xml.internal.ws.api.message.Packet.Status.Request;
+// import static com.sun.xml.internal.ws.api.message.Packet.Status.Request;
 
 public class JWTAuthorizationFilter extends OncePerRequestFilter {
     @Override
