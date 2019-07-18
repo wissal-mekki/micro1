@@ -5,7 +5,7 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                withMaven(jdk: 'JDK', maven: 'Maven', tempBinDir: '') {
+                withMaven(maven: 'Maven', tempBinDir: '') {
                     sh 'mvn clean compile'
                 }
             }
@@ -14,7 +14,7 @@ pipeline {
         stage ('Testing Stage') {
 
             steps {
-                withMaven(jdk: 'JDK', maven: 'Maven', tempBinDir: '') {
+                withMaven(maven: 'Maven', tempBinDir: '') {
                     sh 'mvn test'
                 }
             }
@@ -23,7 +23,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                withMaven(jdk: 'JDK', maven: 'Maven', tempBinDir: ''){
+                withMaven(maven: 'Maven', tempBinDir: ''){
                     sh 'mvn deploy'
                 }
             }
