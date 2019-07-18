@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import sun.java2d.pipe.hw.AccelDeviceEventListener;
+// import sun.java2d.pipe.hw.AccelDeviceEventListener;
 
 @SpringBootApplication
 public class Micro1Application implements CommandLineRunner {
