@@ -1,4 +1,10 @@
+com/project/micro1/repositories/OfferRepository.class
 com/project/micro1/Micro1Application.class
 com/project/micro1/repositories/EmployeeRepository.class
+com/project/micro1/services/OfferController.class
+com/project/micro1/repositories/ApplicationRepository.class
 com/project/micro1/services/EmployeeController.class
+com/project/micro1/entities/Offer.class
 com/project/micro1/entities/Employee.class
+com/project/micro1/entities/Application.class
+com/project/micro1/services/ApplicationController.class

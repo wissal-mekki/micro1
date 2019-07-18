@@ -1,6 +1,8 @@
 package com.project.micro1.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -22,9 +24,11 @@ public class Application implements Serializable {
     @Column(name = "coveringletter", nullable = false)
     private  String coveringletter;
 
-
     @ManyToOne
-    private Employee employee ;
+    @JoinColumn(name="user_id",referencedColumnName = "id")
+    @JsonIgnoreProperties("applications")
+    private User user ;
+
 
     @OneToOne
     private Offer offer ;
@@ -54,12 +58,12 @@ public class Application implements Serializable {
         this.coveringletter = coveringletter;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public User getUser() {
+        return user;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setUser(User user) {
+        this.user= user;
     }
 
     public Offer getOffer() {
@@ -70,11 +74,13 @@ public class Application implements Serializable {
         this.offer = offer;
     }
 
+    public Application() {
+    }
 
-    public Application(@NotNull String cv, @NotNull String coveringletter, Employee employee, Offer offer) {
+    public Application(@NotNull String cv, @NotNull String coveringletter, User user, Offer offer) {
         this.cv = cv;
         this.coveringletter = coveringletter;
-        this.employee = employee;
+        this.user = user;
         this.offer = offer;
     }
 }

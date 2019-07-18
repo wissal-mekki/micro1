@@ -5,14 +5,14 @@ import com.project.micro1.repositories.ApplicationRepository;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+
+@CrossOrigin(origins = "*")
 @RequestMapping("/api")
 @RestController
 public class ApplicationController  {
@@ -32,8 +32,14 @@ public class ApplicationController  {
 
     }
 
-    @PostMapping("/applications")
-    public ResponseEntity<Application> CreateApplication(Application application ) throws URISyntaxException {
+   // @PostMapping("/application")
+    @GetMapping("/lastapp")
+    public Application Getlastapp() {
+        return applicationRepository.findTopByOrderByIDDesc() ;
+    }
+
+    @RequestMapping(value = "/application", method =RequestMethod.POST)
+    public ResponseEntity<Application> CreateApplication( @Valid @RequestBody Application application ) throws URISyntaxException {
         if(application.getID() != null) {
 
             System.out.println("eeee");

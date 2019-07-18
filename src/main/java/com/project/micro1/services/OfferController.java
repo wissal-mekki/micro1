@@ -5,15 +5,13 @@ import com.project.micro1.entities.Offer;
 import com.project.micro1.repositories.OfferRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
-
+@CrossOrigin(origins = "*")
 @RequestMapping("/api")
 @RestController
 public class OfferController {
@@ -28,13 +26,9 @@ public class OfferController {
     }
 
 
-    @PostMapping("/offers")
-    public ResponseEntity<Offer> CreateApplication(Offer offer ) throws URISyntaxException {
-        if(offer.getId() != null) {
+    @PostMapping("/offer")
+    public ResponseEntity<Offer> CreateApplication(@Valid @RequestBody Offer offer) throws URISyntaxException {
 
-            System.out.println("eeee");
-
-        }
 
         Offer result = offerRepository.save(offer);
         return  ResponseEntity.created(new URI("/api/offers"+ result.getId())).header("ok!").body(result);
