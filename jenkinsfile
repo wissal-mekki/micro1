@@ -23,8 +23,8 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-               sh  'docker build -f Dockerfile -t  micro1 .'
-                    sh 'docker run -p 8085:8085 micro1'
+               sh  'docker build -t  micro1-jenk .'
+                    sh 'docker run -p 8085:8085 micro1-jenk'
             }
         }
     }
