@@ -9,7 +9,7 @@ services:
       - MYSQL_PASSWORD=26156276
 
 
-  micro1-app:
+  micro1-app-jenk:
     build:
       context: ./
       dockerfile: Dockerfile
