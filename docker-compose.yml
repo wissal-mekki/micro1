@@ -3,6 +3,8 @@ version: '3'
 services:
   docker-mysql:
     image: mysql:latest
+     volumes:
+       - /var/lib/mysql/micro1:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=26156276
       - MYSQL_DATABASE=micro1
