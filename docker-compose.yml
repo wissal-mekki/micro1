@@ -10,7 +10,7 @@ services:
     volumes:
        - micro1-volume:/var/lib/mysql/micro1
 volumes:
-       -  micro1-volume
+       - micro1-volume
   micro1-app-jenk:
     build:
       context: ./
