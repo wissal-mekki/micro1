@@ -27,11 +27,11 @@ services:
         - SPRING_DATASOURCE_URL=jdbc:mysql://docker-mysql/micro1?useSSL=false&allowPublicKeyRetrieval=true
         - SPRING_DATASOURCE_USERNAME=root
         - SPRING_DATASOURCE_PASSWORD=26156276
-      #- DATABASE_HOST=docker-mysql
-      #- DATABASE_USER=root
-      #- DATABASE_PASSWORD=26156276
-     # - DATABASE_NAME=micro1
-      #- DATABASE_PORT=3306
+        - DATABASE_HOST=docker-mysql
+        - DATABASE_USER=root
+        - DATABASE_PASSWORD=26156276
+        - DATABASE_NAME=micro1
+        - DATABASE_PORT=3306
       
 # volumes:
   # micro1-volume:
