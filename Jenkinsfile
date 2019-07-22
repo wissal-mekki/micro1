@@ -1,3 +1,6 @@
+pipeline {
+    agent any
+
 stages {
     
     stage('Generate') {
@@ -23,4 +26,5 @@ stages {
 }
 }
 }
+
 }
