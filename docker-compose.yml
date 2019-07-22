@@ -33,4 +33,4 @@ services:
         - micro1-volume:/var/lib/micro1-app-jenk
         
 volumes:
-        - micro1-volume
+   micro1-volume
