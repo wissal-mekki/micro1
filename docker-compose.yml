@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   docker-mysql:
-    image: mysql
+    image: mysql:latest
   #  volumes:
     #   - micro1-volume:/var/lib/mysql/micro1
     environment:
