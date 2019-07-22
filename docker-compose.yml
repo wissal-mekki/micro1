@@ -3,12 +3,13 @@ version: '3'
 services:
   docker-mysql:
     image: mysql
+    volumes:
+       - micro1-volume: /var/lib/mysql/micro1
     environment:
       - MYSQL_ROOT_PASSWORD=26156276
       - MYSQL_DATABASE=micro1
       - MYSQL_PASSWORD=26156276
-    volumes:
-       - micro1-volume:/var/lib/mysql/micro1
+  
 
   micro1-app-jenk:
     build:
@@ -20,6 +21,8 @@ services:
         - docker-mysql:mysql
     ports:
       - 8085:8085
+    volumes:
+        - micro1-volume:/var/lib/micro1-app-jenk
     environment:
         - SPRING_DATASOURCE_URL=jdbc:mysql://docker-mysql/micro1?useSSL=false&allowPublicKeyRetrieval=true
         - SPRING_DATASOURCE_USERNAME=root
@@ -29,8 +32,7 @@ services:
       #- DATABASE_PASSWORD=26156276
      # - DATABASE_NAME=micro1
       #- DATABASE_PORT=3306
-    volumes:
-        - micro1-volume:/var/lib/micro1-app-jenk
+   
         
 volumes:
-   micro1-volume
+   micro1-volume: 
