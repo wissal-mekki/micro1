@@ -30,5 +30,7 @@ services:
      # - DATABASE_NAME=micro1
       #- DATABASE_PORT=3306
     volumes:
-        - micro1:/var/lib
-    
+        - micro1-volume:/var/lib/micro1-app-jenk
+        
+  volumes:
+        - micro1-volume
