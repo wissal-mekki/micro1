@@ -8,7 +8,7 @@ stages {
         checkout scm
         stash 'source'
     }
-    }
+    
        
 
         
@@ -18,9 +18,6 @@ stages {
                     sh 'mvn clean  install'
                 }
  }
-    
+    }
 }
-}
-
-
 }
