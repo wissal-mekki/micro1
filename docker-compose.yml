@@ -30,4 +30,4 @@ services:
      # - DATABASE_NAME=micro1
       #- DATABASE_PORT=3306
   volumes:
-       - micro1-volume:
+       -  micro1-volume
