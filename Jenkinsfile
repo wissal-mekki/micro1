@@ -11,13 +11,14 @@ stages {
     }
        
         stage('compile') {
-        
+            node {
 
  step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true]){
  withMaven(maven: 'Maven') {
                     sh 'mvn clean  install'
                 }
  }
+            }
     }
     }
 }
