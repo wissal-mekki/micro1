@@ -29,5 +29,5 @@ services:
       #- DATABASE_PASSWORD=26156276
      # - DATABASE_NAME=micro1
       #- DATABASE_PORT=3306
-  volumes:
+    volumes:
        -  micro1-volume
