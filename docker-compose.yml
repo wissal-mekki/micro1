@@ -2,15 +2,14 @@ version: '3'
 
 services:
   docker-mysql:
-    image: mysql:latest
+    image: mysql
     environment:
       - MYSQL_ROOT_PASSWORD=26156276
       - MYSQL_DATABASE=micro1
       - MYSQL_PASSWORD=26156276
     volumes:
        - micro1-volume:/var/lib/mysql/micro1
-volumes:
-       - micro1-volume
+
   micro1-app-jenk:
     build:
       context: ./
@@ -30,4 +29,6 @@ volumes:
       #- DATABASE_PASSWORD=26156276
      # - DATABASE_NAME=micro1
       #- DATABASE_PORT=3306
+    volumes:
+        - micro1:/var/lib
     
