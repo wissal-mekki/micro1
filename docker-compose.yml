@@ -22,7 +22,7 @@ services:
     ports:
       - 8085:8085
     volumes:
-        - micro1-volume:/var/lib/micro1-app-jenk
+        - micro1-volume:/var/lib/mysql/micro1
     environment:
         - SPRING_DATASOURCE_URL=jdbc:mysql://docker-mysql/micro1?useSSL=false&allowPublicKeyRetrieval=true
         - SPRING_DATASOURCE_USERNAME=root
