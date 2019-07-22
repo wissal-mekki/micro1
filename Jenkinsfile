@@ -8,7 +8,7 @@ stages {
         checkout scm
         stash 'source'
     }
-    
+    }
        
         stage('compile') {
         
@@ -21,4 +21,4 @@ stages {
     }
     }
 }
-}
+
