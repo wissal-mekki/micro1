@@ -15,9 +15,9 @@ node {
    }
    stage('Results') {
       junit '**/target/surefire-reports/TEST-*.xml'
-      archive 'target/*.jar'
+      archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
    }
-   
+  
    
 stage('deploy') {
 step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
