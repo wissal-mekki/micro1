@@ -17,15 +17,11 @@ node {
      // junit '**/target/surefire-reports/TEST-*.xml'
       archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
    }
-  stage('sonar') {
- withSonarQubeEnv('sonar') {
-     
-      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
-    }
+  
   }
 stage('deploy') {
    docker.build('micro1-app-jenk')
-  sh './deploy.sh'
+  sh 'docker-compose up -d'
   // sh '/usr/local/bin/docker-compose up --build'
 //step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
 }
