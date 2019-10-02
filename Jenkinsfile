@@ -18,11 +18,11 @@ node {
       archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
    }
   
-   /*
+   
 stage('deploy') {
 step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
 }
-
+/*
    stage('Publish') {
      nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/micro1-0.0.1-SNAPSHOT.jar']], mavenCoordinate: [artifactId: 'micro1', groupId: 'com.project', packaging: 'jar', version: '0.0.1']]]
    }
