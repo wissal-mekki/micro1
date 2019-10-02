@@ -20,7 +20,8 @@ node {
   
    
 stage('deploy') {
-step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
+   sh  ‘docker-compose –f docker-compose.yml‘
+//step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
 }
 /*
    stage('Publish') {
