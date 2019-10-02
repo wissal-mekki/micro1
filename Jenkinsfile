@@ -18,7 +18,7 @@ node {
       archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
    }
   
-  }
+  
 stage('deploy') {
    docker.build('micro1-app-jenk')
   sh 'docker-compose up -d'
