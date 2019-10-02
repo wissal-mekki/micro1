@@ -18,7 +18,7 @@ node {
       archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
    }
   
-   
+   /*
 stage('deploy') {
 step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
 }
@@ -33,6 +33,6 @@ stage('sonar') {
       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
     }
 }
-
+*/
 
 }
