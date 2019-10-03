@@ -1,6 +1,5 @@
 package com.project.micro1;
 
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
