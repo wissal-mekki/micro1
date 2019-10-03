@@ -14,7 +14,7 @@ node {
       }
    }
    stage('Results') {
-      Maven surfire:test
+      Maven surefire:test
       junit '**/target/surefire-reports/TEST-*.xml'
       archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
    }
