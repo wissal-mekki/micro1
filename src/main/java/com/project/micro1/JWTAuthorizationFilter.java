@@ -1,5 +1,5 @@
 package com.project.micro1;
-import static com.sun.xml.internal.ws.api.message.Packet.Status.Request;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
-import static com.sun.xml.internal.ws.api.message.Packet.Status.Request;
+import  com.sun.xml.internal.ws.api.message.Packet.Status.Request;
 
 public class JWTAuthorizationFilter extends OncePerRequestFilter {
     @Override
