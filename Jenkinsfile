@@ -14,11 +14,12 @@ node {
       }
    }
    stage('Results') {
-     // junit '**/target/surefire-reports/TEST-*.xml'
+      Maven surfire:test
+      junit '**/target/surefire-reports/TEST-*.xml'
       archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
    }
   
-  
+  /*
 stage('deploy') {
    docker.build('micro1-app-jenk')
   sh 'docker-compose up -d'
@@ -34,7 +35,7 @@ stage('sonar') {
  withSonarQubeEnv('sonar') {
      
       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
-    }
+    }*/
 }
 */
 
