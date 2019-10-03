@@ -18,7 +18,6 @@ import java.util.Optional;
 @RestController
 public class ApplicationController  {
 
-    //private EntityManagerFactory entityManagerFactory;
 
     private SessionFactory sessionFactory;
     @Autowired
@@ -41,7 +40,7 @@ public class ApplicationController  {
     public ResponseEntity<Application> CreateApplication( @Valid @RequestBody Application application ) throws URISyntaxException {
         if(application.getId() != null) {
 
-            System.out.println("eeee");
+            System.out.println("already exist !");
 
         }
 
