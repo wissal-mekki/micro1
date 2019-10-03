@@ -7,11 +7,12 @@ node {
       mvnHome = tool name: 'Maven', type: 'maven'
    }
    stage('Build') {
-      if (isUnix()) {
+      
+         
+         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean install"
          sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
-      } else {
-         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
-      }
+    
+      
    }
    stage('Results') {
       sh "'${mvnHome}/bin/mvn' surefire:test"
