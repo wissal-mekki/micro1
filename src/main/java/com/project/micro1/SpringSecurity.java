@@ -31,12 +31,15 @@ private BCryptPasswordEncoder bCryptPasswordEncoder  ;
    @Override
     protected void  configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable();
-      //  httpSecurity.formLogin();
+       httpSecurity.cors().disable() ;
        httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
        httpSecurity.authorizeRequests().antMatchers("/login","/api/signUp").permitAll();
        httpSecurity.exceptionHandling().authenticationEntryPoint(new CustomAuthenticationEntryPoint());
        httpSecurity.authorizeRequests().antMatchers(HttpMethod.GET,"/api/**").hasAuthority("USER");
        httpSecurity.authorizeRequests().antMatchers(HttpMethod.POST,"/api/**").hasAuthority("USER");
+       httpSecurity.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/**").hasAuthority("USER");
+       httpSecurity.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/**").hasAuthority("ADMIN");
        httpSecurity.authorizeRequests().anyRequest().authenticated() ;
        httpSecurity.addFilter(new JWTAuthenticationFilter(authenticationManager()));
        httpSecurity.addFilterBefore(new JWTAuthorizationFilter(),

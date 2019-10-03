@@ -11,8 +11,9 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Optional;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
 @RestController
 public class ApplicationController  {
@@ -28,28 +29,44 @@ public class ApplicationController  {
     public  ApplicationController(ApplicationRepository applicationRepository){
         this.applicationRepository=applicationRepository;
 
-        //this.entityManagerFactory=entityManagerFactory;
 
     }
 
-   // @PostMapping("/application")
     @GetMapping("/lastapp")
     public Application Getlastapp() {
-        return applicationRepository.findTopByOrderByIDDesc() ;
+        return applicationRepository.findTopByOrderByIdDesc() ;
     }
 
     @RequestMapping(value = "/application", method =RequestMethod.POST)
     public ResponseEntity<Application> CreateApplication( @Valid @RequestBody Application application ) throws URISyntaxException {
-        if(application.getID() != null) {
+        if(application.getId() != null) {
 
             System.out.println("eeee");
 
         }
 
         Application result = applicationRepository.save(application);
-        return  ResponseEntity.created(new URI("/api/applications"+ result.getID())).header("ok!").body(result);
+        return  ResponseEntity.created(new URI("/api/applications"+ result.getId())).header("ok!").body(result);
     }
+    @PutMapping(value = "/updateapp/{id}")
+    public Application UpdateApplication( @PathVariable(name = "id") Long id, @RequestBody  Application application) throws URISyntaxException {
 
+        Optional<Application> appOptional = applicationRepository.findById(id);
+
+        if (appOptional.isPresent()) {
+
+            System.out.println(" exist !");
+
+            application.setId(id);
+
+            System.out.println(id);
+        }
+
+        return applicationRepository.save(application);
+    }
+    @GetMapping("/detail-app/{id}")
+    public Application GetApp(@PathVariable(name ="id") Long id){
+        return applicationRepository.findApplicationById(id)  ;}
      @GetMapping("/applications")
     public List<Application> GetAll(){
         return applicationRepository.findAll();

@@ -17,8 +17,6 @@ public class Role {
     @Column(name = "roleName", nullable = false)
     private String roleName ;
 
-    /*@ManyToMany
-    private List<User> users = new ArrayList<>() ;*/
 
     public Role() {
     }
@@ -38,15 +36,7 @@ public class Role {
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
-/*
-    public List<User> getUsers() {
-        return users;
-    }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-*/
     public Role(Long id, String roleName) {
         this.id = id;
         this.roleName = roleName;

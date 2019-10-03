@@ -37,13 +37,8 @@ public class User implements Serializable {
     private  String lastname;
 
     @NotNull
-   // @JsonDeserialize(using = LocalDateDeserializer.class)
-   // @JsonSerialize(using = LocalDateSerializer.class)
-  //  @DateTimeFormat(iso = DateTimeFormatter.ISO_LOCAL_DATE ISO_LOCAL_DATE_TIME)
-    //@JsonFormat(pattern = "YYYY-MM-dd")
+
     @Column(name = "birthdate", nullable = false)
-    //@DateTimeFormat(pattern = "dd-MM-yyyy", iso = DateTimeFormat.ISO.DATE_TIME)
-    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private String birthdate;
 
     @NotNull
